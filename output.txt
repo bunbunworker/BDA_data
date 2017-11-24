@@ -1,0 +1,9 @@
+/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/python/lib/pyspark.zip/pyspark/sql/context.py:487: DeprecationWarning: HiveContext is deprecated in Spark 2.0.0. Please use SparkSession.builder.enableHiveSupport().getOrCreate() instead.
+今日	キョウ	今日	名詞-副詞可能		
+も	モ	も	助詞-係助詞		
+し	シ	する	動詞-自立	サ変・スル	未然形
+ない	ナイ	ない	助動詞	特殊・ナイ	基本形
+と	ト	と	助詞-接続助詞		
+ね	ネ	ね	助詞-終助詞		
+EOS
+
