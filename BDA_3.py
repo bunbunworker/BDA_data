@@ -46,12 +46,12 @@ F_a = df.where(col('text').like("%選挙%")).groupBy("user.followers_count").cou
 F_b = df.where(col('text').like("%選挙%")).select("user.name","user.followers_count")
 F_name = F_a.join(F_b, F_a.followers_count == F_b.followers_count,'inner').select("name","count").show(1)
 
+Gi = df.where(col('text').like("%自民党%")).select("created_at").distinct().select(explode(split('created_at',' '))).groupBy("col").count().sort("count",ascending=False).show()
+Min = df.where(col('text').like("%民主党%")).select("created_at").distinct().select(explode(split('created_at',' '))).groupBy("col").count().sort("count",ascending=False).show()
+Kou = df.where(col('text').like("%公明党%")).select("created_at").distinct().select(explode(split('created_at',' '))).groupBy("col").count().sort("count",ascending=False).show()
+Kyo = df.where(col('text').like("%共産党%")).select("created_at").distinct().select(explode(split('created_at',' '))).groupBy("col").count().sort("count",ascending=False).show()
+Sya = df.where(col('text').like("%社民党%")).select("created_at").distinct().select(explode(split('created_at',' '))).groupBy("col").count().sort("count",ascending=False).show()
 
-Gi = df.where(col('text').like("%自民党%")).select("user.created_at").distinct().select(explode(split(’user.created_at’,’ ’)[2])).groupBy("col").count().sort("count",ascending=False).show(10,False)
-Min = df.where(col('text').like("%民主党%")).select("user.created_at").distinct().select(explode(split(’user.created_at’,’ ’)[2])).groupBy("col").count().sort("count",ascending=False).show(10,False)
-Kou = df.where(col('text').like("%公明党%")).select("user.created_at").distinct().select(explode(split(’user.created_at’,’ ’)[2])).groupBy("col").count().sort("count",ascending=False).show(10,False)
-Kyo = df.where(col('text').like("%共産党%")).select("user.created_at").distinct().select(explode(split(’user.created_at’,’ ’)[2])).groupBy("col").count().sort("count",ascending=False).show(10,False)
-Sya = df.where(col('text').like("%社民党%")).select("user.created_at").distinct().select(explode(split(’user.created_at’,’ ’)[2])).groupBy("col").count().sort("count",ascending=False).show(10,False)
 
 
 Gi_loc = df.where(col('text').like("%自民党%")).groupBy("user.location").count().sort("count",ascending=False).show(10,False)
